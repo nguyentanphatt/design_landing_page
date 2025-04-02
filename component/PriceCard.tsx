@@ -38,10 +38,10 @@ const PriceCard = ({
 }: PriceCardProps) => {
   return (
     <div className="bg-white w-full h-auto rounded-4xl mb-[30px]">
-      <div className="relative flex flex-col items-start p-10">
+      <div className="relative flex flex-col items-start p-10 h-full">
         <div
           className={twMerge(
-            "absolute top-0 left-[50%] -translate-x-1/2 -translate-y-1/2 bg-[#0096c7] font-dm-sans text-white uppercase text-sm/4 font-bold p-2 rounded",
+            "absolute top-0 left-[50%] -translate-x-1/2 -translate-y-1/2 bg-[#0096c7] font-dm-sans text-white uppercase text-sm/4 font-bold p-1.5 rounded",
             cardTypeClassName
           )}
         >
@@ -62,7 +62,7 @@ const PriceCard = ({
           </p>
           <div
             className={twMerge(
-              "w-full bg-[#0096c7] font-dm-sans text-white uppercase text-sm/4 font-bold p-[0.55rem] tracking-[0.15rem] rounded mt-5",
+              "w-full bg-[#0096c7] font-dm-sans text-white uppercase text-sm/4 font-bold p-[0.5rem] tracking-[0.15rem] rounded mt-5",
               priceTypeClassName
             )}
           >

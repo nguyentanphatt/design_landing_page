@@ -1,6 +1,14 @@
 import Button from "@/component/Button";
+import FeatureCard from "@/component/FeatureCard";
 import PriceCard from "@/component/PriceCard";
-import { Calendar, Check, Cursor, CursorLeft } from "@/constant/image";
+import {
+  Calendar,
+  Check,
+  Cursor,
+  CursorLeft,
+  Pause,
+  RoundCheck,
+} from "@/constant/image";
 import React from "react";
 const priceData01 = [
   {
@@ -54,7 +62,6 @@ const priceData02 = [
     content: "Optimized to turn visitors into customers",
   },
 ];
-
 const priceCardData = [
   {
     cardType: "Monthly Subscription",
@@ -78,7 +85,7 @@ const priceCardData = [
     title: "Custom website build",
     isCurrent: false,
     price: "Starting at",
-    priceClassName:"text-[2.8rem] w-[238px]",
+    priceClassName: "text-[2.8rem] lg:text-[64px]/18 w-[238px] lg:w-full",
     subPrice: "$ 10,000",
     priceType: "Project-base pricing",
     priceTypeClassName: "bg-[#f9f9f9] text-black",
@@ -88,12 +95,25 @@ const priceCardData = [
     children: (
       <Button
         title="Book a call"
-        className="bg-transparent border border-dark-blue w-full"
+        className="bg-transparent border border-dark-blue w-full mt-auto"
         titleClassName="text-dark-blue"
       >
         <Calendar className="size-4 text-dark-blue" />
       </Button>
     ),
+  },
+];
+const infoData = [
+  {
+    title: "Pause anytime",
+    content: "Temporarily pause your monthly subscription anytime.",
+    children: <Pause className="size-10 mb-[19px] text-white" />,
+  },
+  {
+    title: "Try it for a week",
+    content:
+      "Not loving it after a week? Get 75% back, of your subscription, no questions asked.",
+    children: <RoundCheck className="size-10 mb-[19px] text-white" />,
   },
 ];
 const PriceSection = () => {
@@ -108,23 +128,45 @@ const PriceSection = () => {
           maximize your existing one, I offer two options to help your business
           grow.
         </p>
-        {priceCardData.map((item, index) => (
-          <PriceCard
-            key={index}
-            cardType={item.cardType}
-            cardTypeClassName={item.cardTypeClassName}
-            title={item.title}
-            isCurrent={item.isCurrent}
-            price={item.price}
-            priceClassName={item.priceClassName}
-            subPrice={item.subPrice}
-            priceType={item.priceType}
-            priceTypeClassName={item.priceTypeClassName}
-            cardInfo={item.cardInfo}
-            interest={item.interest}
-            children={item.children}
-          ></PriceCard>
-        ))}
+        <div className="flex flex-col lg:flex-row gap-[30px]">
+          {priceCardData.map((item, index) => (
+            <PriceCard
+              key={index}
+              cardType={item.cardType}
+              cardTypeClassName={item.cardTypeClassName}
+              title={item.title}
+              isCurrent={item.isCurrent}
+              price={item.price}
+              priceClassName={item.priceClassName}
+              subPrice={item.subPrice}
+              priceType={item.priceType}
+              priceTypeClassName={item.priceTypeClassName}
+              cardInfo={item.cardInfo}
+              interest={item.interest}
+              children={item.children}
+            />
+          ))}
+        </div>
+        <div className="mb-[30px] flex flex-col lg:flex-row gap-[30px]">
+          {infoData.map((item, index) => (
+            <FeatureCard
+              key={index}
+              title={item.title}
+              content={item.content}
+              children={item.children}
+            />
+          ))}
+        </div>
+        <div className="flex items-center justify-center gap-2 lg:gap-5">
+          <span className="relative flex size-3">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#ffc300] opacity-75"></span>
+            <span className="relative inline-flex size-3 rounded-full bg-[#ffc300]"></span>
+          </span>
+          <p className="text-white font-bold text-base font-dm-sans">
+            I only accept 3 new clients per month to ensure every project or
+            subscription gets my full attention.
+          </p>
+        </div>
       </div>
     </div>
   );
