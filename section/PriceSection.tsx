@@ -3,8 +3,6 @@ import FeatureCard from "@/component/FeatureCard";
 import PriceCard from "@/component/PriceCard";
 import {
   Calendar,
-  Check,
-  Cursor,
   CursorLeft,
   Pause,
   RoundCheck,

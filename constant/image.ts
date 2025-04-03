@@ -6,6 +6,8 @@ import Check from "@/public/icon/check.svg";
 import CursorLeft from "@/public/icon/cursor-left.svg";
 import Pause from "@/public/icon/pause.svg";
 import RoundCheck from "@/public/icon/round-check.svg";
+import Plus from '@/public/icon/plus.svg'
+import Minus from '@/public/icon/minus.svg'
 export {
   CalendarPlus,
   ArrowRight,
@@ -15,4 +17,6 @@ export {
   Calendar,
   Pause,
   RoundCheck,
+  Plus,
+  Minus
 };
