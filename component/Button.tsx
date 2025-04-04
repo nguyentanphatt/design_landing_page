@@ -1,4 +1,4 @@
-import React, { ReactNode, SVGProps } from "react";
+import React, { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
 const Button = ({

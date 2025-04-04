@@ -1,13 +1,10 @@
+"use client";
 import Button from "@/component/Button";
 import FeatureCard from "@/component/FeatureCard";
 import PriceCard from "@/component/PriceCard";
-import {
-  Calendar,
-  CursorLeft,
-  Pause,
-  RoundCheck,
-} from "@/constant/image";
-import React from "react";
+import { Calendar, CursorLeft, Pause, RoundCheck } from "@/constant/image";
+import { useAnimation, useInView, motion } from "motion/react";
+import React, { useEffect, useRef } from "react";
 const priceData01 = [
   {
     id: 1,
@@ -115,9 +112,17 @@ const infoData = [
   },
 ];
 const PriceSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const mainControls = useAnimation();
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start("visible");
+    }
+  }, [isInView]);
   return (
     <div className="h-auto bg-dark-blue flex items-center justify-center px-[10%] py-[100px]">
-      <div className="flex flex-col w-full h-full">
+      <div ref={ref} className="flex flex-col w-full h-full">
         <h1 className="text-[34px]/10 md:text-[45.6px]/14 text-white font-dm-serif-display font-bold mb-[30px]">
           Website solutions that drive real growth
         </h1>
@@ -128,21 +133,31 @@ const PriceSection = () => {
         </p>
         <div className="flex flex-col lg:flex-row gap-[30px]">
           {priceCardData.map((item, index) => (
-            <PriceCard
+            <motion.div
               key={index}
-              cardType={item.cardType}
-              cardTypeClassName={item.cardTypeClassName}
-              title={item.title}
-              isCurrent={item.isCurrent}
-              price={item.price}
-              priceClassName={item.priceClassName}
-              subPrice={item.subPrice}
-              priceType={item.priceType}
-              priceTypeClassName={item.priceTypeClassName}
-              cardInfo={item.cardInfo}
-              interest={item.interest}
-              children={item.children}
-            />
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              initial="hidden"
+              animate={mainControls}
+              transition={{ duration: 0.5, delay: (index + 1) * 1 }}
+            >
+              <PriceCard
+                cardType={item.cardType}
+                cardTypeClassName={item.cardTypeClassName}
+                title={item.title}
+                isCurrent={item.isCurrent}
+                price={item.price}
+                priceClassName={item.priceClassName}
+                subPrice={item.subPrice}
+                priceType={item.priceType}
+                priceTypeClassName={item.priceTypeClassName}
+                cardInfo={item.cardInfo}
+                interest={item.interest}
+                children={item.children}
+              />
+            </motion.div>
           ))}
         </div>
         <div className="mb-[30px] flex flex-col lg:flex-row gap-[30px]">

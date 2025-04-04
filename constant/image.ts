@@ -8,6 +8,10 @@ import Pause from "@/public/icon/pause.svg";
 import RoundCheck from "@/public/icon/round-check.svg";
 import Plus from '@/public/icon/plus.svg'
 import Minus from '@/public/icon/minus.svg'
+import Location from "@/public/icon/location.svg"
+import File from "@/public/icon/file.svg"
+import Phone from "@/public/icon/phone.svg"
+import Mail from "@/public/icon/mail.svg"
 export {
   CalendarPlus,
   ArrowRight,
@@ -18,5 +22,9 @@ export {
   Pause,
   RoundCheck,
   Plus,
-  Minus
+  Minus,
+  Location,
+  File,
+  Phone,
+  Mail
 };
