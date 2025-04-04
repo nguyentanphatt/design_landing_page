@@ -8,7 +8,7 @@ const dmSerifDisplay = DM_Serif_Display({
   variable: '--font-dm-serif-display'
 });
 
-export const dmSans = DM_Sans({
+const dmSans = DM_Sans({
   weight: ['400', '500', '700'],
   subsets: ['latin'],
   variable: '--font-dm-sans',
