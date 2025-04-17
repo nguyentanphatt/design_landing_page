@@ -3,6 +3,7 @@ Built using Next.js, Tailwind CSS, and Framer Motion by transforming a design fr
 
 ## Copyright
 The original website design belongs to Christopher Cardoen. I only transformed it into code and added animations and smooth scrolling.
+Here is the owner's website link: https://christophercardoen.com/
 
 ## Live Demo
 https://christopher-design-landing-page.vercel.app/
